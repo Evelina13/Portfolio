@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<style>
+	.dd{
+		
+		border: solid 2px purple;
+		
+	}
+
+	.ll{
+		padding: 20px;
+		width: 150px;
+		height: 150px;
+		margin: auto;
+		border: solid 2px black;
+	}
+	.error{
+		display: none;
+	}
+
+	</style>
+	<title>Document</title>
+</head>
+<body>
+
+<div class="container pt-5">
+	
+
+<div class="dd col-lg-5 mx-auto p-3 mt-5 text-center">
+	
+login
+<input type="login" class=" aa form-control" placeholder="Enter login">
+<p class="text-danger err-1 error">Input is Empty</p>
+
+password
+<input type="password" class="bb form-control" placeholder="Enter password">
+<p class="text-danger err-2 error">Input is Empty</p>
+
+
+<button class="da btn btn-success mt-5">LogIn</button>
+<div class="ll"></div>
+
+</div>
+</div>
+
+
+
+
+
+	<script src="../js/jquery.js"></script>
+	<script>
+		
+$('.da').click(function() {
+ 
+	var oo=$('.aa').val()
+	var pp=$('.bb').val()
+
+	$('.ll').html(oo+pp)
+
+if(oo.length==0){
+  $('.err-1').show(500)
+
+}else{
+
+	$('.err-1').hide(500)
+}
+
+
+
+if(pp.length==0){
+  $('.err-2').show(500)
+
+}else{
+
+	$('.err-2').hide(500)
+}
+
+
+$.post('admin.php',{
+
+	ad:oo,
+	ad2:pp
+
+
+},function (res) {
+
+        $('.ll').html(res)
+
+    })
+
+
+
+
+
+
+})
+
+
+
+
+	</script>
+	
+</body>
+</html>
